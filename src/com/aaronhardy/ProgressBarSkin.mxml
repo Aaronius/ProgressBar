@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright (c) 2011 Aaron Hardy
+
+ Permission is hereby granted, free of charge, to any person
+ obtaining a copy of this software and associated documentation
+ files (the "Software"), to deal in the Software without
+ restriction, including without limitation the rights to use,
+ copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the
+ Software is furnished to do so, subject to the following
+ conditions:
+
+ The above copyright notice and this permission notice shall be
+ included in all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ OTHER DEALINGS IN THE SOFTWARE.
+-->
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:mx="library://ns.adobe.com/flex/mx"
+		width="250" height="12" xmlns:components="com.rain.pg.download.view.components.*">
+	<!-- host component -->
+	<fx:Metadata>
+		[HostComponent("com.aaronhardy.ProgressBar")]
+	</fx:Metadata>
+	<fx:Script>
+		<![CDATA[
+			import com.aaronhardy.ProgressBar;
+		]]>
+	</fx:Script>
+	
+	<!-- SkinParts
+	name=track, type=mx.core.IVisualElement, required=true
+	name=bar, type=mx.core.IVisualElement, required=true
+	-->
+	
+	<s:Rect id="track" top="0" right="0" bottom="0" left="0"
+			radiusX="5" radiusY="5">
+		<s:filters>
+			<s:DropShadowFilter angle="135" inner="true" distance="1" blurX="1" blurY="1" alpha=".7"/>
+		</s:filters>
+		<s:fill>
+			<s:SolidColor color="#eaeaea"/>
+		</s:fill>
+	</s:Rect>
+	
+	<s:Rect id="bar" radiusX="5" radiusY="5"
+			width="{track.width * (ProgressBar(hostComponent).value / ProgressBar(hostComponent).maximum)}"
+			height="10">
+		<s:fill>
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry color="#9FFC60"/>
+				<s:GradientEntry color="#63B030"/>
+			</s:LinearGradient>
+		</s:fill>
+	</s:Rect>
+</s:Skin>
