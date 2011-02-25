@@ -19,7 +19,7 @@
 
 			protected function timer_tickHandler(event:TimerEvent):void
 			{
-				progressBar.value += .01;
+				progressBar.value += .005;
 				
 				if (progressBar.value >= 1)
 				{
